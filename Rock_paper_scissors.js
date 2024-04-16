@@ -1,21 +1,24 @@
 
 
 //Generate ComputerChoice to be paper, scissor or rock. 
-let possibleComputerChoice = ["Paper","Scissor","Rock"];
-let computerChoice = possibleComputerChoice[Math.floor(Math.random() * possibleComputerChoice.length)];
+//let possibleComputerChoice = ["Paper","Scissor","Rock"];
+//let computerChoice = possibleComputerChoice[Math.floor(Math.random() * possibleComputerChoice.length)];
 
 //Store player choice to playerChoice
-let playerChoice = prompt("What is your choice, paper, scissor or rock?")
+//let playerChoice = prompt("What is your choice, paper, scissor or rock?")
 
 //Make playerChoice case insensitive
-playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase()
+//playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase()
 //Create a function singleRound() that plays a single round of the game that compares playerChoice and computerChoice.
 //Return a string that declares the result of the comparison
 let playerScore = 0;
 let computerScore = 0;
+let possibleComputerChoice = ["Paper","Scissor","Rock"];
 
 function singleRound() {
-
+    let computerChoice = possibleComputerChoice[Math.floor(Math.random() * possibleComputerChoice.length)]; 
+    let playerChoice = prompt("What is your choice, paper, scissor or rock?")
+    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase()
     let playerResult;
     if ((playerChoice === "Paper" && computerChoice === "Scissor") || (playerChoice === "Scissor" && computerChoice === "Rock") || (playerChoice === "Rock" && computerChoice === "Paper")) {
         return ("You lost!");
@@ -29,14 +32,21 @@ function singleRound() {
 
 }
 
-
-if (singleRound() === "You lost!") {
-    computerScore = computerScore + 1;
+function calculatePlayerScore() {
+    if (singleRound() === "You lost!") {
+        computerScore = computerScore + 1;
+    } else if (singleRound() === "You won!") {
+        playerScore = playerScore + 1;
+    }
 }
 
-if (singleRound() === "You won!") {
-    playerScore = playerScore + 1;
+
+function playGame() {
+    calculatePlayerScore();
+    calculatePlayerScore();
 }
+
+playGame();
 
 console.log(playerChoice);
 console.log(computerChoice);
