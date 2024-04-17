@@ -21,38 +21,34 @@ function singleRound() {
     playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase()
     let playerResult;
     if ((playerChoice === "Paper" && computerChoice === "Scissor") || (playerChoice === "Scissor" && computerChoice === "Rock") || (playerChoice === "Rock" && computerChoice === "Paper")) {
-        return ("You lost!");
+        playerResult = "You lost!";
+        console.log (playerResult);
     } 
     if ((playerChoice === "Paper" && computerChoice === "Rock") || (playerChoice === "Scissor" && computerChoice === "Paper") || (playerChoice === "Rock" && computerChoice === "Scissor")) {
-        return  ("You won!");
+        playerResult = "You won!";
+        console.log (playerResult);
     }
     if (playerChoice === computerChoice) {
-        return  ("It's a tie!");
+        playerResult = "It's a tie!";
+        console.log (playerResult);
     }
-
-}
-
-function calculatePlayerScore() {
-    if (singleRound() === "You lost!") {
+    if (playerResult === "You lost!") {
         computerScore = computerScore + 1;
-    } else if (singleRound() === "You won!") {
+    } 
+    else if (playerResult === "You won!") {
         playerScore = playerScore + 1;
     }
 }
 
-
 function playGame() {
-    calculatePlayerScore();
-    calculatePlayerScore();
+    singleRound();
+    singleRound();
+    singleRound();
+    singleRound();
+    singleRound();
 }
 
 playGame();
-
-console.log(playerChoice);
-console.log(computerChoice);
-console.log(playerScore);
-console.log(computerScore);
-console.log(singleRound());
 
 if (playerScore > computerScore) {
     console.log("You won the game!");
@@ -76,7 +72,3 @@ if (playerScore < computerScore) {
 //Compare playerScore and computerScore after five rounds
 
 //Return the result of the comparison in console
-
-
-
-
