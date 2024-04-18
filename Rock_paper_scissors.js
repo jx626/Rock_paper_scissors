@@ -1,15 +1,11 @@
 
 
 //Generate ComputerChoice to be paper, scissor or rock. 
-//let possibleComputerChoice = ["Paper","Scissor","Rock"];
-//let computerChoice = possibleComputerChoice[Math.floor(Math.random() * possibleComputerChoice.length)];
 
 //Store player choice to playerChoice
-//let playerChoice = prompt("What is your choice, paper, scissor or rock?")
 
 //Make playerChoice case insensitive
-//playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase()
-//Create a function singleRound() that plays a single round of the game that compares playerChoice and computerChoice.
+
 //Return a string that declares the result of the comparison
 let playerScore = 0;
 let computerScore = 0;
